@@ -30,4 +30,9 @@ app.delete("/", async (req, res) => {
   res.send("delete page");
 });
 
-app.listen(PORT, () => console.log(`Listing PORT ${PORT}`));
+try {
+  db.migrate.latest();
+  app.listen(PORT, () => console.log(`Listing PORT ${PORT}`));
+} catch (err) {
+  console.error(err);
+}
