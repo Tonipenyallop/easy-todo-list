@@ -21,7 +21,7 @@
   },
   "scripts": {
     "dev": "nodemon server/index",
-    "start": "node server/index && react-scripts start",
+    "start": "node server/index",
     "hack": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
