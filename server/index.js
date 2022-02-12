@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5555;
 const knex = require("knex");
+const path = require("path");
 const env =
   process.env.NODE_ENV === "production" ? "production" : "development";
 const setting = require("../knexfile")[env];
@@ -10,6 +11,7 @@ const cors = require("cors");
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname, "..", "build")));
 
 app.get("/api", async (_, res) => {
   const todos = await db.select().table("todos");
